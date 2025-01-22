@@ -22,9 +22,6 @@ export default function Main() {
         <meta name="twitter:image" content="https://example.com/images/twitter-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div>
-        <h1>Welcome to the Wedding Page!</h1>
-      </div>
       
     <div>
       <div className="flex flex-col  items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
