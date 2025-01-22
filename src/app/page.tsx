@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 // import { useState } from "react";
 import Image from "next/image";
@@ -20,7 +20,7 @@ export default function Main() {
     <div>
       <div className="flex flex-col  items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
         <div className="relative w-[425px]">
-          <MainPage/>
+          <MainTop/>
           <MainIntro />
           <MainLocation/>
           {/* <MainTitle title="GALLERY" subtitle="우리의 순간"/> */}
@@ -30,7 +30,7 @@ export default function Main() {
   );
 }
 
-export function MainPage() {
+export function MainTop() {
   return (
     <div>
       <div className="h-[700px] overflow-hidden bg-white">
