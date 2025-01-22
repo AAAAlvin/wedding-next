@@ -19,7 +19,8 @@ const crimsonPro = Crimson_Pro({
 
 const gowunDodum = Gowun_Dodum({
   variable: '--font-gowun-dodum',
-  weight:["400"]
+  weight:["400"],
+  subsets: ['latin'], // 필요한 서브셋 선택
 });
 
 export const metadata: Metadata = {
