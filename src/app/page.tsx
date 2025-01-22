@@ -1,101 +1,192 @@
+"use client";
+
+import { Crimson_Pro } from "next/font/google";
+import { useState } from "react";
 import Image from "next/image";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const images = [
+  "/images/pic1.jpg",
+  "/images/pic2.jpg",
+  "/images/pic3.jpg",
+  "/images/pic4.jpg",
+  "/images/pic5.jpg",
+  "/images/pic6.jpg",
+  "/images/pic7.jpg",
+  "/images/pic8.jpg",
+  "/images/pic9.jpg",
+]
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+export default function Main() {
+  return (
+    <div>
+      <div className="flex flex-col  items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
+        <div className="relative w-[425px]">
+          <MainPage/>
+          <MainIntro />
+          <MainLocation/>
+          {/* <MainTitle title="GALLERY" subtitle="우리의 순간"/> */}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+    </div>
+  );
+}
+
+export function MainPage() {
+  return (
+    <div>
+      <div className="h-[700px] overflow-hidden bg-white">
+        <div className="row-01 p-9">
+          <div className="text-center">
+            <div className="space-x-1 text-3xl text-gray-600">
+              <span>2025 / 04 / 26</span>
+            </div>
+            <div>
+              SATURDAY
+            </div>
+          </div>
+        </div>
+
+        <div className="row-02">
+          <div className="relative w-full h-96"> {/* 부모 div에 크기 설정 */}
+            <Image
+              src="/images/pic1.jpg"
+              alt="My Image"
+              fill // 부모 div에 맞게 크기 조정
+              style={{ 
+                objectFit: "cover", // 이미지 비율 유지하며 부모 크기에 맞춤
+                objectPosition: "top" // 이미지가 상단부터 나오도록 설정
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="row-03 p-6">
+          <div className="text-center text-gray-600 font-gowun">
+              <div className="space-x-1 text-2xl">
+                <span>유영현 · 김아람</span>
+              </div>
+              <div className="p-3">
+                2025년 04월 26일 토요일 오후 5시 30분
+                <br/>
+                수원 노보텔 샴페인홀
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function MainIntro() {
+  return (
+    <div>
+      <div className="bg-white">
+          <MainTitle title="GALLERY" subtitle="우리의 순간"/>
+          <PhotoGallery/>
+      </div>
+    </div>
+  );
+}
+
+export function MainLocation() {
+  return (
+    <div className="bg-white">
+      <div className="bg-white p-1">
+          <MainTitle title="LOCATION" subtitle="오시는길"/>
+          <div className="row-03 p-6">
+          <div className="text-center text-gray-600 font-gowun">
+              <div className="space-x-1 text-2xl font-bold">
+                <span>수원 노보텔, 샴페인홀</span>
+              </div>
+              <div className="p-3">
+              경기 수원시 팔달구 덕영대로 902
+                <br/>
+                <br/>
+                Tel. 010-3432-5887
+              </div>
+            </div>
+          </div>
+      </div>
+      <Map></Map>
+
+    </div>
+  );
+}
+
+export function PhotoGallery() {
+  const [isExpanded, setIsExpanded] = useState(false); // 상태 추가
+
+  const toggleHeight = () => {
+    setIsExpanded((prev) => !prev); // 높이 확장/축소 토글
+  };
+
+  return (
+    <div className="relative">
+      {/* 이미지 갤러리 */}
+      <div className="grid grid-cols-2 gap-4 p-4 transition-all duration-500 ">
+        {images.map((src, index) => (
+          <div
+            key={index}
+            className={`relative ${
+              index % 2 === 0 ? "h-60" : "h-80"
+            } overflow-hidden rounded-lg shadow-md`}
+          >
+            {/* 이미지 */}
+            <Image
+              src={src}
+              alt={`Image ${index + 1}`}
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* 버튼 클릭 시 갤러리 높이 확장 */}
+      {/* <div className="text-center mt-4">
+        <button
+          onClick={toggleHeight}
+          className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {isExpanded ? "접기" : "확장"}
+        </button>
+      </div> */}
+    </div>
+  );
+}
+
+export function MainTitle({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <div>
+      <div className="row-01 p-1">
+        <div className="text-center">
+          <span className="text-rose-400 text-opacity-60 tracking-widest">{title}</span>
+        </div>
+      </div>
+
+      <div className="row-02">
+        <div className="text-center">
+          <span className="text-rose-400 font-gowun text-xl font-bold">{subtitle}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function Map() {
+  return (
+    <div className="flex justify-center h-80">
+      <div className="relative">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3175.12361179637!2d126.99650397585998!3d37.26849577211727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1737547104288!5m2!1sko!2skr"
+          height="300"
+          width="400"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
   );
 }

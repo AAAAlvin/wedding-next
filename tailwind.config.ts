@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        gowun: ['Gowun Dodum', 'sans-serif'], // Gowun Dodum 폰트를 Tailwind로 사용할 수 있도록 추가
+      },
     },
   },
   plugins: [],
