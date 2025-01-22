@@ -1,6 +1,5 @@
 "use client";
 
-import { Crimson_Pro } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -114,11 +113,11 @@ export function MainLocation() {
 }
 
 export function PhotoGallery() {
-  const [isExpanded, setIsExpanded] = useState(false); // 상태 추가
+  // const [isExpanded, setIsExpanded] = useState(false); // 상태 추가
 
-  const toggleHeight = () => {
-    setIsExpanded((prev) => !prev); // 높이 확장/축소 토글
-  };
+  // const toggleHeight = () => {
+  //   setIsExpanded((prev) => !prev); // 높이 확장/축소 토글
+  // };
 
   return (
     <div className="relative">

@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimsonPro.className} antialiased`}
+        className={`${crimsonPro.className} ${gowunDodum.variable} antialiased`}  // gowunDodum 추가
       >
         {children}
       </body>
