@@ -1,5 +1,4 @@
 import { MainTitle } from "./maintitle";
-import { Map } from "./map";
 
 export function MainAccount() {
     return (
