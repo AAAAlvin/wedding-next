@@ -1,7 +1,7 @@
 // "use client";
 
 // import { useState } from "react";
-import Head from 'next/head';
+import { Account } from '@/components/account';
 import { MainAccount } from './mainaccount';
 import { MainIntro } from './mainintro';
 import { MainLocation } from './mainlocation';
@@ -17,6 +17,7 @@ export default function Main() {
             <MainIntro />
             <MainLocation/>
             <MainAccount/>
+            <Account/>
             {/* <MainTitle title="GALLERY" subtitle="우리의 순간"/> */}
           </div>
         </div>
