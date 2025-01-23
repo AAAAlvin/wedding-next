@@ -12,8 +12,8 @@ export default function Main() {
   return (
     <>
       <div>
-        <div className="flex flex-col  items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
-          <div className="relative w-[425px]">
+        <div className="flex flex-col items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
+          <div className="relative w-full">
             <MainTop/>
             <MainIntro />
             <MainLocation/>
