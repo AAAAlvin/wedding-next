@@ -2,10 +2,11 @@
 
 // import { useState } from "react";
 import { Account } from '@/components/account';
-import { MainAccount } from './mainaccount';
+// import { MainAccount } from './mainaccount';
 import { MainIntro } from './mainintro';
 import { MainLocation } from './mainlocation';
 import { MainTop } from './maintop';
+import { Comment } from './maincomment';
 
 export default function Main() {
   return (
@@ -16,7 +17,8 @@ export default function Main() {
             <MainTop/>
             <MainIntro />
             <MainLocation/>
-            <MainAccount/>
+
+            <Comment/>
             <Account/>
             {/* <MainTitle title="GALLERY" subtitle="우리의 순간"/> */}
           </div>
