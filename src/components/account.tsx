@@ -1,8 +1,16 @@
 "use client";
 import React from "react";
+import Image from "next/image";
+
+interface AccountInfo {
+    name: string;
+    bank: string;
+    account: string;
+  }
 
 const accounts = {
   groom: [
+    { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
     { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
     { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
   ],
@@ -26,7 +34,7 @@ export function Account() {
   );
 }
 
-function AccountSection({ title, accounts }: { title: string; accounts: any[] }) {
+function AccountSection({ title, accounts }: { title: string; accounts: AccountInfo[] }) {
   return (
     <div className="p-5">
       <a className="flex justify-center bg-neutral-100 p-5">
@@ -67,8 +75,8 @@ function AccountItem({ name, bank, account }: { name: string; bank: string; acco
         </div>
         
         <div className="inline-flex items-center justify-center w-12 h-12 bg-yellow-300 rounded-full">
-            <a className="pay" href="https://qr.kakaopay.com/281006011000000310267128">
-            <img src="/icons/pay-kakao.svg" alt="카카오페이" />
+            <a className="pay" href="#">
+                <Image src="/icons/pay-kakao.svg" alt="카카오페이" width={24} height={24} />
             </a>
         </div>
     </li>
