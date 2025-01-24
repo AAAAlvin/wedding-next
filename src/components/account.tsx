@@ -1,7 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { MainTitle } from "@/app/maintitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 interface AccountInfo {
     name: string;
@@ -18,7 +21,7 @@ const accounts = {
   bride: [
     { name: "김길탁", bank: "기업은행", account: "010-2008-0192" },
     { name: "정화숙", bank: "기업은행", account: "1430-4050-501-026" },
-    { name: "김아람", bank: "국민은행", account: "110-000-000000" },
+    { name: "김아람", bank: "국민은행", account: "480402-04-084600" },
   ],
 };
 
@@ -50,14 +53,34 @@ export function Account() {
   );
 }
 
-function AccountSection({ title, accounts }: { title: string; accounts: AccountInfo[] }) {
+function AccountSection({
+  title,
+  accounts,
+}: {
+  title: string;
+  accounts: AccountInfo[];
+}) {
+
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleAccordion = () => setIsOpen(!isOpen);
+
   return (
     <div className="p-5">
-      <a className="flex justify-center bg-neutral-100 p-5">
-        {title}
-        <i className="fa fa-chevron-down"></i>
-      </a>
-      <ul className="c accordion-list accordion1">
+      <button
+        onClick={toggleAccordion}
+        className="flex justify-between items-center bg-neutral-100 p-5 w-full"
+      >
+        <span>{title}</span>
+        <FontAwesomeIcon
+          icon={(isOpen ? faChevronUp : faChevronDown) as IconProp}
+        />
+      </button>
+      
+      <ul
+        className={`transition-[max-height] duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         {accounts.map((account, index) => (
           <AccountItem
             key={index}
