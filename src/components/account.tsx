@@ -91,7 +91,7 @@ function AccountItem({ name, bank, account }: { name: string; bank: string; acco
         </div>
         
         <div className="inline-flex items-center justify-center w-12 h-12 bg-yellow-300 rounded-full">
-            <a className="pay" href="#">
+            <a className="pay" href="https://qr.kakaopay.com/FbCFOC8GC">
                 <Image src="/icons/pay-kakao.svg" alt="카카오페이" width={24} height={24} />
             </a>
         </div>
