@@ -27,7 +27,7 @@ const accounts = {
 
 export function Account() {
   return (
-      <div className="bg-white p-2">
+      <div className="bg-white py-5 px-2">
         <div className="bg-white">
             <MainTitle title="ACCOUNT" subtitle="마음 전하실 곳"/>
             <div className="row-03 p-6">

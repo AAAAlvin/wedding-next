@@ -16,7 +16,7 @@ const comments = [
 
 export function Comment() {
   return (
-      <div className="bg-white">
+      <div className="bg-white py-10">
         <div className="bg-white p-1">
             <MainTitle title="GUESTBOOK" subtitle="방명록"/>
         </div>

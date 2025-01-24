@@ -3,7 +3,7 @@ import { Map } from "./map";
 
 export function MainLocation() {
     return (
-      <div className="bg-white">
+      <div className="bg-white py-5">
         <div className="bg-white p-1">
             <MainTitle title="LOCATION" subtitle="오시는길"/>
             <div className="row-03 p-6">
