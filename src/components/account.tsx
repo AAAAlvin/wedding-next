@@ -16,9 +16,8 @@ const accounts = {
     { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
   ],
   bride: [
-    { name: "김아람", bank: "국민은행", account: "110-000-000000" },
-    { name: "김아람", bank: "국민은행", account: "110-000-000000" },
-    { name: "김아람", bank: "국민은행", account: "110-000-000000" },
+    { name: "김길탁", bank: "기업은행", account: "010-2008-0192" },
+    { name: "정화숙", bank: "기업은행", account: "1430-4050-501-026" },
     { name: "김아람", bank: "국민은행", account: "110-000-000000" },
   ],
 };
