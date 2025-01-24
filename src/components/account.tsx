@@ -14,9 +14,9 @@ interface AccountInfo {
 
 const accounts = {
   groom: [
-    { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
-    { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
-    { name: "유영현", bank: "새마을금고", account: "9003-2072-4037-4" },
+    { name: "유갑종", bank: "SC은행", account: "596-20-307217" },
+    { name: "김영심", bank: "하나은행", account: "443-910273-25707" },
+    { name: "유영현", bank: "새마을금고", account: "9003-2072-40374" },
   ],
   bride: [
     { name: "김길탁", bank: "기업은행", account: "010-2008-0192" },
