@@ -27,7 +27,7 @@ const accounts = {
 
 export function Account() {
   return (
-      <div className="bg-white p-10">
+      <div className="bg-white p-2">
         <div className="bg-white">
             <MainTitle title="ACCOUNT" subtitle="마음 전하실 곳"/>
             <div className="row-03 p-6">
@@ -101,13 +101,13 @@ function AccountItem({ name, bank, account }: { name: string; bank: string; acco
   };
 
   return (
-    <li className="flex justify-between items-center border-t p-3">
+    <li className="flex justify-between items-center border-b p-3">
         <div className="flex-col font-gowun py-2">
             <a className="flex" onClick={copyToClipboard}>
                 <img src="/icons/copy.svg" alt="복사 아이콘" />
                 <span className="px-2">{name}</span>
             </a>
-            <a className="flex gap-3 text-sm" onClick={copyToClipboard}>
+            <a className="flex gap-3 text-xs" onClick={copyToClipboard}>
                 <span className="bnk">{bank}</span>
                 <span className="nmb">{account}</span>
             </a>
