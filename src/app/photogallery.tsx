@@ -1,6 +1,5 @@
 
 import Image from "next/image";
-
 const images = [
   "/images/pic1.jpg",
   "/images/pic2.jpg",
@@ -21,14 +20,14 @@ export function PhotoGallery() {
     // };
   
     return (
-      <div className="relative">
+      <div className="relative w-full"> {/* 부모 div에 크기 설정 */}
         {/* 이미지 갤러리 */}
         <div className="grid grid-cols-2 gap-4 p-4 transition-all duration-500 ">
           {images.map((src, index) => (
             <div
               key={index}
               className={`relative ${
-                index % 2 === 0 ? "h-60" : "h-80"
+                index % 2 === 0 ? "h-80" : "h-80"
               } overflow-hidden rounded-lg shadow-md`}
             >
               {/* 이미지 */}
