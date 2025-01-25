@@ -40,7 +40,7 @@ function CommentItem({ comments }: { comments: CommentInfo[] }) {
 
 function CommentItemRow({ id, comment }: { id: string; comment: string }) {
   return (
-    <li className="flex justify-between items-center border-t p-3">
+    <li className="flex justify-between items-center border-t p-3 shadow-sm">
       <div className="flex-col font-gowun py-2">
         <span className="font-bold">{id}</span>
         <p className="text-sm">{comment}</p>

@@ -27,7 +27,7 @@ const accounts = {
 
 export function Account() {
   return (
-      <div className="bg-white py-5 px-2">
+      <div className="bg-white  py-10 p-2">
         <div className="bg-white">
             <MainTitle title="ACCOUNT" subtitle="마음 전하실 곳"/>
             <div className="row-03 p-6">
@@ -65,12 +65,12 @@ function AccountSection({
   const toggleAccordion = () => setIsOpen(!isOpen);
 
   return (
-    <div className="p-5">
+    <div className="p-5 font-gowun">
       <button
         onClick={toggleAccordion}
         className="flex justify-between items-center bg-neutral-100 p-5 w-full"
       >
-        <span>{title}</span>
+        <span className="font-semibold text-neutral-600">{title}</span>
         <FontAwesomeIcon
           icon={(isOpen ? faChevronUp : faChevronDown) as IconProp}
         />

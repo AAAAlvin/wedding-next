@@ -1,9 +1,8 @@
 
-import Image from 'next/image';
+import { FullImage } from './fullimage';
 
 export function MainTop() {
   return (
-    <div>
       <div className="h-[700px] overflow-hidden bg-white">
         <div className="row-01 p-9">
           <div className="text-center">
@@ -17,18 +16,7 @@ export function MainTop() {
         </div>
 
         <div className="row-02">
-          <div className="relative w-full h-96"> {/* 부모 div에 크기 설정 */}
-            <Image
-              src="/images/pic1.jpg"
-              alt="My Image"
-              fill // 부모 div에 맞게 크기 조정
-              style={{
-                objectFit: "cover", // 이미지 비율 유지하며 부모 크기에 맞춤
-                objectPosition: "top" // 이미지가 상단부터 나오도록 설정
-              }}
-            />
-          </div>
-        </div>
+          <FullImage imgPath="/images/pic1.jpg"></FullImage>
 
         <div className="row-03 p-6">
           <div className="text-center text-gray-600 font-gowun">
