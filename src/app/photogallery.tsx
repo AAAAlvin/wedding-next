@@ -16,8 +16,7 @@ const images: string[] = [
   "/images/pic5.jpg",
   "/images/pic6.jpg",
   "/images/pic7.jpg",
-  "/images/pic8.jpg",
-  "/images/pic9.jpg",
+  "/images/pic8.jpg",  
 ];
 
 export function PhotoGallery(): JSX.Element {
