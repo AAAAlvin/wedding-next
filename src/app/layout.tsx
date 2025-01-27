@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: '영현♥아람 결혼합니다!',
     images: [
       {
-        url: '/images/pic4.jpg',
+        url: '/images/pic_og.jpg',
         alt: '이미지 설명',
       },
     ]
