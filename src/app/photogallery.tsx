@@ -1,6 +1,12 @@
-"use client"
+"use client";
+
 import { JSX, useState } from "react";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Scrollbar, Autoplay, A11y } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/scrollbar";
 
 const images: string[] = [
   "/images/pic1.jpg",
@@ -16,16 +22,16 @@ const images: string[] = [
 
 export function PhotoGallery(): JSX.Element {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [selectedImage, setSelectedImage] = useState<string>("");
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
-  const openModal = (src: string): void => {
-    setSelectedImage(src);
+  const openModal = (index: number): void => {
+    setSelectedImageIndex(index);
     setIsModalOpen(true);
   };
 
   const closeModal = (): void => {
     setIsModalOpen(false);
-    setSelectedImage("");
+    setSelectedImageIndex(0);
   };
 
   return (
@@ -36,7 +42,7 @@ export function PhotoGallery(): JSX.Element {
           <div
             key={index}
             className="relative h-80 overflow-hidden rounded-lg shadow-md cursor-pointer"
-            onClick={() => openModal(src)}
+            onClick={() => openModal(index)}
           >
             <Image
               src={src}
@@ -51,26 +57,41 @@ export function PhotoGallery(): JSX.Element {
 
       {/* 모달 창 */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div className="relative w-screen h-screen">
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 text-black text-3xl font-bold z-10"
+              className="absolute top-4 right-4 text-white text-3xl font-bold z-10"
               aria-label="Close Modal"
             >
               &times;
             </button>
-            <Image
-              src={selectedImage}
-              alt="Selected"
-              fill
-              style={{ objectFit: "contain" }}
-              className="rounded-lg"
-            />
+            {/* Swiper 슬라이더 */}
+            <Swiper
+              modules={[Scrollbar, Autoplay, A11y]}
+              initialSlide={selectedImageIndex}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              scrollbar={{ draggable: true }}
+              className="w-full h-full"
+              loop={true}
+            >
+              {images.map((src, index) => (
+                <SwiperSlide key={index} className="flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={src}
+                      alt={`Image ${index + 1}`}
+                      fill
+                      style={{ objectFit: "contain" }}
+                      className="rounded-lg"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       )}
-
     </div>
   );
 }
