@@ -17,7 +17,7 @@ export default function Main() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.wedding-yh-ahram.site/"/>
         <meta property="og:title" content="영현♥아람 결혼합니다!" />
-        <meta property="og:description" content="영현♥아람 결혼합니다!" />
+        <meta property="og:description" content="4월 26일 (토) 오후 5시30분" />
       </Head>
 
       <div>
