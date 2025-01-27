@@ -1,8 +1,6 @@
 // "use client";
 
-// import { useState } from "react";
 import { Account } from '@/components/account';
-// import { MainAccount } from './mainaccount';
 import { MainIntro } from './mainintro';
 import { MainLocation } from './mainlocation';
 import { MainTop } from './maintop';
@@ -11,6 +9,7 @@ import Head from "next/head";  // 잘못된 임포트 -> next/document에서 nex
 // import Carousel from './carousel';
 
 export default function Main() {
+
   return (
     <>
       <Head>
@@ -27,7 +26,6 @@ export default function Main() {
             <MainTop/>
             <MainIntro />
             <MainLocation/>
-
             <Comment/>
             <Account/>
             {/* <MainTitle title="GALLERY" subtitle="우리의 순간"/> */}

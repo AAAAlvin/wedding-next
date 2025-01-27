@@ -1,6 +1,8 @@
-
+"use client"
+import { JSX, useState } from "react";
 import Image from "next/image";
-const images = [
+
+const images: string[] = [
   "/images/pic1.jpg",
   "/images/pic2.jpg",
   "/images/pic3.jpg",
@@ -10,46 +12,65 @@ const images = [
   "/images/pic7.jpg",
   "/images/pic8.jpg",
   "/images/pic9.jpg",
-]
+];
 
-export function PhotoGallery() {
-    // const [isExpanded, setIsExpanded] = useState(false); // 상태 추가
-  
-    // const toggleHeight = () => {
-    //   setIsExpanded((prev) => !prev); // 높이 확장/축소 토글
-    // };
-  
-    return (
-      <div className="relative w-full"> {/* 부모 div에 크기 설정 */}
-        {/* 이미지 갤러리 */}
-        <div className="grid grid-cols-2 gap-4 p-4 transition-all duration-500 ">
-          {images.map((src, index) => (
-            <div
-              key={index}
-              className={`relative ${
-                index % 2 === 0 ? "h-80" : "h-80"
-              } overflow-hidden rounded-lg shadow-md`}
-            >
-              {/* 이미지 */}
-              <Image
-                src={src}
-                alt={`Image ${index + 1}`}
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          ))}
-        </div>
-  
-        {/* 버튼 클릭 시 갤러리 높이 확장 */}
-        {/* <div className="text-center mt-4">
-          <button
-            onClick={toggleHeight}
-            className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+export function PhotoGallery(): JSX.Element {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
+  const openModal = (src: string): void => {
+    setSelectedImage(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = (): void => {
+    setIsModalOpen(false);
+    setSelectedImage("");
+  };
+
+  return (
+    <div className="relative w-full">
+      {/* 이미지 갤러리 */}
+      <div className="grid grid-cols-2 gap-4 p-4">
+        {images.map((src, index) => (
+          <div
+            key={index}
+            className="relative h-80 overflow-hidden rounded-lg shadow-md cursor-pointer"
+            onClick={() => openModal(src)}
           >
-            {isExpanded ? "접기" : "확장"}
-          </button>
-        </div> */}
+            <Image
+              src={src}
+              alt={`Image ${index + 1}`}
+              fill
+              style={{ objectFit: "cover" }}
+              className="rounded-lg"
+            />
+          </div>
+        ))}
       </div>
-    );
-  }
+
+      {/* 모달 창 */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-80 z-50">
+          <div className="relative w-screen h-screen">
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-black text-3xl font-bold z-10"
+              aria-label="Close Modal"
+            >
+              &times;
+            </button>
+            <Image
+              src={selectedImage}
+              alt="Selected"
+              fill
+              style={{ objectFit: "contain" }}
+              className="rounded-lg"
+            />
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
