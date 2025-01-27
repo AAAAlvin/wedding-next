@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Crimson_Pro, Gowun_Dodum } from "next/font/google";
 import "./globals.css";
+// import { Bgm } from "./bgm";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",

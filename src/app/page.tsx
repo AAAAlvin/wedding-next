@@ -6,10 +6,11 @@ import { MainLocation } from './mainlocation';
 import { MainTop } from './maintop';
 import { Comment } from './maincomment';
 import Head from "next/head";  // 잘못된 임포트 -> next/document에서 next/head로 변경
+import { Bgm } from './bgm';
+
 // import Carousel from './carousel';
 
 export default function Main() {
-
   return (
     <>
       <Head>
@@ -23,6 +24,7 @@ export default function Main() {
         <div className="flex flex-col items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
           <div className="relative max-w-96">
             {/* <Carousel/> */}
+            <Bgm></Bgm>
             <MainTop/>
             <MainIntro />
             <MainLocation/>
