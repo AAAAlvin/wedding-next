@@ -30,6 +30,12 @@ export const metadata: Metadata = {
 
   openGraph: {
     siteName: '영현♥아람 결혼합니다!',
+    images: [
+      {
+        url: '/images/pic4.jpg',
+        alt: '이미지 설명',
+      },
+    ]
   },
 };
 
