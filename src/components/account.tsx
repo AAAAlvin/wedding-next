@@ -10,18 +10,19 @@ interface AccountInfo {
     name: string;
     bank: string;
     account: string;
+    kakaopayLink: string;
   }
 
 const accounts = {
   groom: [
-    { name: "유갑종", bank: "SC은행", account: "596-20-307217" },
-    { name: "김영심", bank: "하나은행", account: "443-910273-25707" },
-    { name: "유영현", bank: "새마을금고", account: "9003-2072-40374" },
+    { name: "유갑종", bank: "SC은행", account: "596-20-307217", kakaopayLink: "https://qr.kakaopay.com/FbCFOC8GC"},
+    { name: "김영심", bank: "하나은행", account: "443-910273-25707", kakaopayLink: "https://qr.kakaopay.com/FVZ007fPi" },
+    { name: "유영현", bank: "새마을금고", account: "9003-2072-40374", kakaopayLink: "https://qr.kakaopay.com/FbCFOC8GC" },
   ],
   bride: [
-    { name: "김길탁", bank: "기업은행", account: "010-2008-0192" },
-    { name: "정화숙", bank: "기업은행", account: "1430-4050-501-026" },
-    { name: "김아람", bank: "국민은행", account: "480402-04-084600" },
+    { name: "김길탁", bank: "기업은행", account: "010-2008-0192", kakaopayLink: "https://qr.kakaopay.com/FbCFOC8GC" },
+    { name: "정화숙", bank: "기업은행", account: "1430-4050-501-026", kakaopayLink: "https://qr.kakaopay.com/FbCFOC8GC" },
+    { name: "김아람", bank: "국민은행", account: "480402-04-084600", kakaopayLink: "https://qr.kakaopay.com/FbCFOC8GC" },
   ],
 };
 
@@ -87,6 +88,7 @@ function AccountSection({
             name={account.name}
             bank={account.bank}
             account={account.account}
+            kakaopayLink={account.kakaopayLink}
           />
         ))}
       </ul>
@@ -94,7 +96,7 @@ function AccountSection({
   );
 }
 
-function AccountItem({ name, bank, account }: { name: string; bank: string; account: string }) {
+function AccountItem({ name, bank, account, kakaopayLink }: { name: string; bank: string; account: string ; kakaopayLink: string }) {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(`${bank} ${account}`);
     alert("계좌 정보가 복사되었습니다!");
@@ -104,7 +106,12 @@ function AccountItem({ name, bank, account }: { name: string; bank: string; acco
     <li className="flex justify-between items-center border-b p-3">
         <div className="flex-col font-gowun py-2">
             <a className="flex" onClick={copyToClipboard}>
-                <img src="/icons/copy.svg" alt="복사 아이콘" />
+                <Image
+                  src="/icons/copy.svg"
+                  alt="Copy"
+                  width={24} // 원하는 너비
+                  height={24} // 원하는 높이
+                />
                 <span className="px-2">{name}</span>
             </a>
             <a className="flex gap-3 text-xs" onClick={copyToClipboard}>
@@ -114,10 +121,16 @@ function AccountItem({ name, bank, account }: { name: string; bank: string; acco
         </div>
         
         <div className="inline-flex items-center justify-center w-12 h-12 bg-yellow-300 rounded-full">
-            <a className="pay" href="https://qr.kakaopay.com/FbCFOC8GC">
+            <a className="pay" href={kakaopayLink}>
                 <Image src="/icons/pay-kakao.svg" alt="카카오페이" width={24} height={24} />
             </a>
         </div>
     </li>
   );
 }
+
+// 나
+// https://qr.kakaopay.com/FbCFOC8GC
+
+// 엄마
+// https://qr.kakaopay.com/FVZ007fPi
