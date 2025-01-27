@@ -14,8 +14,8 @@ export function FullImage({
           alt={altText} // 동적으로 전달된 altText 사용
           fill // 부모 div에 맞게 이미지 크기 조정
           style={{
-            objectFit: "contain", // 이미지 비율 유지하며 부모 크기에 맞춤
-            objectPosition: "top", // 이미지가 상단부터 나오도록 설정
+            objectFit: "cover", // 이미지 비율 유지하며 부모 크기에 맞춤
+            objectPosition: "Top", // 이미지가 상단부터 나오도록 설정
           }}
         />
       </div>

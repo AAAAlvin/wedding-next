@@ -18,19 +18,19 @@ export function MainTop() {
         <div className="row-02">
           <FullImage imgPath="/images/pic1.jpg"></FullImage>
 
-        <div className="row-03 p-6">
-          <div className="text-center text-gray-600 font-gowun">
-            <div className="space-x-1 text-2xl">
-              <span>유영현 · 김아람</span>
-            </div>
-            <div className="p-3">
-              2025년 04월 26일 토요일 오후 5시 30분
-              <br />
-              수원 노보텔 샴페인홀
+          <div className="row-03 p-6">
+            <div className="text-center text-gray-600 font-gowun">
+              <div className="space-x-1 text-2xl">
+                <span>유영현 · 김아람</span>
+              </div>
+              <div className="p-3">
+                2025년 04월 26일 토요일 오후 5시 30분
+                <br />
+                수원 노보텔 샴페인홀
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }

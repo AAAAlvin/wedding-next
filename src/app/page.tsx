@@ -22,7 +22,7 @@ export default function Main() {
 
       <div>
         <div className="flex flex-col items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
-          <div className="relative">
+          <div className="relative max-w-96">
             {/* <Carousel/> */}
             <MainTop/>
             <MainIntro />
