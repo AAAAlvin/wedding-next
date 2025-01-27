@@ -1,4 +1,5 @@
 // "use client";
+import type { Metadata } from "next";
 
 import { Account } from '@/components/account';
 import { MainIntro } from './mainintro';
@@ -9,6 +10,11 @@ import { Comment } from './maincomment';
 import { Bgm } from './bgm';
 
 // import Carousel from './carousel';
+
+export const metadata: Metadata = {
+  title: "유영현, 김아람 결혼합니다♥",
+  description: "4월 26일(토) 오후 5시30분\n수원노보텔, 샴페인홀",
+};
 
 export default function Main() {
   return (
