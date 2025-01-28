@@ -49,6 +49,7 @@ export function PhotoGallery(): JSX.Element {
               fill
               style={{ objectFit: "cover" }}
               className="rounded-lg"
+              
             />
           </div>
         ))}

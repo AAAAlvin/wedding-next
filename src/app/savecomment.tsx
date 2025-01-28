@@ -15,6 +15,7 @@ export function GuestbookForm({ showForm, setShowForm }: CommentProps) {
     const [formData, setFormData] = useState({ name: '', password:'', message: '' });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [loading, setLoading] = useState(false); // 로딩 상태 추가
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -30,6 +31,7 @@ export function GuestbookForm({ showForm, setShowForm }: CommentProps) {
     e.preventDefault();
     setSuccessMessage('');
     setErrorMessage('');
+    setLoading(true); // 로딩 상태 시작
 
     try {
         // API 호출 (POST)
@@ -45,7 +47,7 @@ export function GuestbookForm({ showForm, setShowForm }: CommentProps) {
     
         // 응답이 성공적인 경우
         if (response.ok) {
-          setSuccessMessage('댓글이 성공적으로 저장되었습니다! 2초 후에 종료됩니다.');
+          setSuccessMessage('댓글이 성공적으로 저장되었습니다!');
           setFormData({ name: '', password: '', message: '' }); // 폼 초기화
 
             // 성공 메시지 표시 후 1초 뒤에 폼을 닫기
@@ -60,7 +62,9 @@ export function GuestbookForm({ showForm, setShowForm }: CommentProps) {
         // 네트워크 오류나 다른 오류 발생 시 처리
         setErrorMessage('알 수 없는 오류가 발생했습니다.');
         console.error('Error occurred:', error);
-      }
+        } finally {
+            setLoading(false); // 로딩 상태 종료
+        }
     };
 
 return (
@@ -72,8 +76,11 @@ return (
         <form onSubmit={handleSubmit}>
             <button
             onClick={handleClick}
-            className="absolute top-4 right-4 text-neutral-500 hover:text-red-500 transition duration-200"
+            className={`absolute top-4 right-4 text-neutral-500 hover:text-red-500 transition duration-200 ${
+                loading ? "text-neutral-300 cursor-not-allowed" : ""
+            }`}
             aria-label="Close"
+            disabled={loading} // 로딩 중일 때 비활성화
             >
             <FontAwesomeIcon icon={faTimes as IconProp} className="w-6 h-6" />
             </button>
