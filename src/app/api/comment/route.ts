@@ -50,7 +50,7 @@ export async function DELETE(req: Request) {
     const commentId = url.searchParams.get('id'); // "id" 파라미터를 추출
 
     const { password } = await req.json(); // password를 body에서 추출
-    console.log(password)
+    console.log(commentId, password)
 
     if (!commentId) {
       return new Response(JSON.stringify({ error: '댓글 ID가 필요합니다.' }), { status: 400 });

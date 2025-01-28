@@ -20,7 +20,7 @@ export default async function Main() {
             <MainTop/>
             <MainIntro />
             <MainLocation/>
-            <Comment comments ={varComment}/>
+            <Comment initialComments ={varComment}/>
             <Account/>
           </div>
         </div>

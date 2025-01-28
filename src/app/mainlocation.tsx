@@ -12,10 +12,10 @@ export function MainLocation() {
                   <span>수원 노보텔, 샴페인홀</span>
                 </div>
                 <div className="p-3">
-                경기 수원시 팔달구 덕영대로 902
+                  경기 수원시 팔달구 덕영대로 902
                   <br/>
                   <br/>
-                  Tel. 010-3432-5887
+                  Tel. 031-547-6600
                 </div>
               </div>
             </div>

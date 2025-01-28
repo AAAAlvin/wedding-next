@@ -10,15 +10,19 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 interface CommentProps {
-  comments: Array<{ id: string; user_nm: string; comment: string }>; // Adjust the type based on your data
+  initialComments: Array<{ id: string; user_nm: string; comment: string }>;
 }
 
-export function Comment({ comments }: CommentProps) {
-
+export function Comment({ initialComments }: CommentProps) {
+  const [comments, setComments] = useState(initialComments);
   const [showForm, setShowForm] = useState(false); // 상태 추가
 
   const handleClick = () => {
     setShowForm(!showForm); // 버튼 클릭 시 작성 폼 표시
+  };
+
+  const handleAddComment = (newComment: { id: string; user_nm: string; comment: string }) => {
+    setComments((prevComments) => [...prevComments, newComment]);
   };
 
   return (
@@ -27,7 +31,10 @@ export function Comment({ comments }: CommentProps) {
             <MainTitle title="GUESTBOOK" subtitle="방명록"/>
         </div>
 
-        <CommentItem comments={comments}/>
+        <CommentItem 
+          initialComments={comments}
+        
+        />
 
         <div className="flex justify-end px-5">
           <a
@@ -38,21 +45,24 @@ export function Comment({ comments }: CommentProps) {
           </a>
         </div>
 
-      {showForm && <GuestbookForm showForm={showForm} setShowForm={setShowForm}/>}
+        {showForm && <GuestbookForm showForm={showForm} setShowForm={setShowForm} onAddComment={handleAddComment} />}
     </div>
   );
 }
 
-export function CommentItem({ comments }: CommentProps) {
+export function CommentItem({ initialComments }: CommentProps) {
   return (
     <div className="p-5">
       <ul className="c accordion-list accordion1">
-        {comments.map((comment, index) => (
+        {initialComments.map((comment, index) => (
           <CommentItemRow 
             key={index}
             id={comment.id}
             user_nm={comment.user_nm}
-            comment={comment.comment} />
+            comment={comment.comment}
+
+            
+            />
         ))}
       </ul>
     </div>
@@ -102,8 +112,8 @@ function CommentItemRow({ id, user_nm, comment }: { id: string; user_nm: string;
   };
 
   return (
-    <li className="flex justify-between items-center border-t p-3 shadow-sm">
-      <div id={id} className="flex-col font-gowun py-2 w-full">
+    <li id={id} className="flex justify-between items-center border-t p-3 shadow-sm">
+      <div className="flex-col font-gowun py-2 w-full">
         <div className="flex justify-between w-full">
           <span className="font-bold">{user_nm}</span>
           <FontAwesomeIcon onClick={handleDeleteClick} icon={faTimes as IconProp} className="w-3 h-3 cursor-pointer" />
@@ -113,7 +123,7 @@ function CommentItemRow({ id, user_nm, comment }: { id: string; user_nm: string;
 
       {/* 모달 */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 font-gowun">
+        <div id={id} className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 font-gowun">
           <div className="bg-white p-6 rounded-lg w-96">
             <h3 className="text-lg font-bold mb-4">댓글 삭제</h3>
             <input
