@@ -11,6 +11,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 interface CommentProps {
   initialComments: Array<{ id: string; user_nm: string; comment: string }>;
+  onDelete?: (id: string) => void;
 }
 
 export function Comment({ initialComments }: CommentProps) {
@@ -25,6 +26,10 @@ export function Comment({ initialComments }: CommentProps) {
     setComments((prevComments) => [...prevComments, newComment]);
   };
 
+  const onDelete = (id: string) => {
+    setComments((prevComments) => prevComments.filter((comment) => comment.id !== id));
+  };
+
   return (
       <div className="bg-white py-10">
         <div className="bg-white p-1">
@@ -33,7 +38,7 @@ export function Comment({ initialComments }: CommentProps) {
 
         <CommentItem 
           initialComments={comments}
-        
+          onDelete = {onDelete}
         />
 
         <div className="flex justify-end px-5">
@@ -50,7 +55,7 @@ export function Comment({ initialComments }: CommentProps) {
   );
 }
 
-export function CommentItem({ initialComments }: CommentProps) {
+export function CommentItem({ initialComments, onDelete }: CommentProps) {
   return (
     <div className="p-5">
       <ul className="c accordion-list accordion1">
@@ -60,7 +65,7 @@ export function CommentItem({ initialComments }: CommentProps) {
             id={comment.id}
             user_nm={comment.user_nm}
             comment={comment.comment}
-
+            ondelete={onDelete}
             
             />
         ))}
@@ -69,7 +74,7 @@ export function CommentItem({ initialComments }: CommentProps) {
   );
 }
 
-function CommentItemRow({ id, user_nm, comment }: { id: string; user_nm: string; comment: string }) {
+function CommentItemRow({ id, user_nm, comment, ondelete }: { id: string; user_nm: string; comment: string, ondelete?: (id: string) => void}) {
   const [password, setPassword] = useState(''); // 비밀번호 상태 추가
   const [showModal, setShowModal] = useState(false); // 모달 상태 추가
 
@@ -101,7 +106,9 @@ function CommentItemRow({ id, user_nm, comment }: { id: string; user_nm: string;
         console.log("댓글이 성공적으로 삭제되었습니다.");
         setShowModal(false); // 삭제 후 모달 닫기
         // 댓글 삭제 후 상태 업데이트 (상위 컴포넌트에서 처리)
-        // onDelete(id); // 삭제된 댓글 ID 전달
+        if (ondelete) {
+          ondelete(id); // 삭제된 댓글 ID 전달
+        }
       } else {
         const errorData = await response.json();
         alert(errorData.error);
