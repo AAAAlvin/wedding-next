@@ -44,7 +44,7 @@ export function Comment({ initialComments }: CommentProps) {
         <div className="flex justify-end px-5">
           <a
             onClick={handleClick} // 버튼 클릭 시 상태 변경
-            className="text-base bg-white text-neutral-600 border px-5 py-2 rounded-2xl hover:bg-neutral-700 hover:text-white transition-all"
+            className="font-gowun font-bold text-base bg-white text-neutral-600 border px-5 py-2 rounded-2xl hover:bg-neutral-700 hover:text-white transition-all"
           >
             방명록 작성하기
           </a>
