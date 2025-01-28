@@ -40,17 +40,17 @@ export function GuestbookForm({ showForm, setShowForm, onAddComment }: CommentPr
       });
 
       const data = await response.json();
-
+      
       if (response.ok) {
         setSuccessMessage("댓글이 성공적으로 저장되었습니다!");
         setFormData({ name: "", password: "", message: "" });
-
+        
         // 새 댓글을 부모 컴포넌트로 전달하여 상태 업데이트
-        onAddComment({ id: data.id, user_nm: formData.name, comment: formData.message });
+        onAddComment({ id: data.data[0].id, user_nm: formData.name, comment: formData.message });
 
         setTimeout(() => {
           setShowForm(false);
-        }, 2000);
+        }, 1000);
       } else {
         setErrorMessage(data.error || "댓글 저장에 실패했습니다.");
       }
@@ -75,7 +75,7 @@ export function GuestbookForm({ showForm, setShowForm, onAddComment }: CommentPr
             <FontAwesomeIcon icon={faTimes as IconProp} className="w-6 h-6" />
           </button>
 
-          <h2 className="text-center text-2xl font-bold mb-6">방명록 (축하 글) 작성</h2>
+          <h2 className="text-center text-2xl font-bold mb-6">방명록(축하 글) 작성</h2>
 
           <div className="space-y-4">
             <div>

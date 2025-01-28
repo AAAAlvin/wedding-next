@@ -28,7 +28,7 @@ export async function POST(req: Request) {
         password: password, // 암호화 후 저장 권장
         comment: message,
       },
-    ]);
+    ]).select('*');
 
     if (error) {
       return new Response(JSON.stringify({ error: 'Failed to insert comment', details: error }), { status: 400 });
