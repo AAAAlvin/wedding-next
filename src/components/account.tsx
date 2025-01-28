@@ -103,14 +103,14 @@ function AccountItem({ name, bank, account, kakaopayLink }: { name: string; bank
   };
 
   return (
-    <li className="flex justify-between items-center border-b p-3">
+    <li className="flex justify-between items-center border-b p-3 text-neutral-700">
         <div className="flex-col font-gowun py-2">
             <a className="flex" onClick={copyToClipboard}>
                 <Image
                   src="/icons/copy.svg"
                   alt="Copy"
-                  width={24} // 원하는 너비
-                  height={24} // 원하는 높이
+                  width={16} // 원하는 너비
+                  height={16} // 원하는 높이
                 />
                 <span className="px-2">{name}</span>
             </a>
