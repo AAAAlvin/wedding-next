@@ -113,7 +113,7 @@ function CommentItemRow({ id, user_nm, comment }: { id: string; user_nm: string;
 
   return (
     <li id={id} className="flex justify-between items-center border-t p-3 shadow-sm">
-      <div className="flex-col font-gowun py-2 w-full">
+      <div className="flex-col font-gowun py-2 w-full text-neutral-700">
         <div className="flex justify-between w-full">
           <span className="font-bold">{user_nm}</span>
           <FontAwesomeIcon onClick={handleDeleteClick} icon={faTimes as IconProp} className="w-3 h-3 cursor-pointer" />

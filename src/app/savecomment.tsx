@@ -90,7 +90,7 @@ export function GuestbookForm({ showForm, setShowForm, onAddComment }: CommentPr
                 autoComplete="off"
                 value={formData.name}
                 onChange={handleChange}
-                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500"
+                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500 text-neutral-700"
               />
             </div>
 
@@ -106,7 +106,7 @@ export function GuestbookForm({ showForm, setShowForm, onAddComment }: CommentPr
                 autoComplete="off"
                 value={formData.password}
                 onChange={handleChange}
-                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500"
+                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500 text-neutral-700"
               />
             </div>
 
@@ -120,7 +120,7 @@ export function GuestbookForm({ showForm, setShowForm, onAddComment }: CommentPr
                 name="message"
                 autoComplete="off"
                 maxLength={500}
-                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500"
+                className="mt-1 w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-neutral-500 text-neutral-700"
                 value={formData.message}
                 onChange={handleChange}
                 rows={5}
