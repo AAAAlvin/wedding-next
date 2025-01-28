@@ -4,10 +4,15 @@ import { MainLocation } from './mainlocation';
 import { MainTop } from './maintop';
 import { Comment } from './maincomment';
 import { Bgm } from './bgm';
+import { GetComment } from './getComment';
 
-export default function Main() {
+
+export default async function Main() {
+  const varComment = await GetComment()
+
   return (
     <>
+
       <div>
         <div className="flex flex-col items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
           <div className="relative max-w-96">
@@ -15,7 +20,7 @@ export default function Main() {
             <MainTop/>
             <MainIntro />
             <MainLocation/>
-            <Comment/>
+            <Comment comments ={varComment}/>
             <Account/>
           </div>
         </div>
