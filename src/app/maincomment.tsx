@@ -34,7 +34,7 @@ export function Comment({ comments }: CommentProps) {
           </a>
         </div>
 
-      {showForm && <GuestbookForm />}
+      {showForm && <GuestbookForm showForm={showForm} setShowForm={setShowForm}/>}
     </div>
   );
 }
