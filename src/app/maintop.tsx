@@ -5,7 +5,7 @@ export function MainTop() {
 
   return (
       <>
-        <div className="h-[700px] overflow-hidden bg-white">
+        <div className="h-[700px] overflow-hidden bg-white py-4">
           <div className="row-01 p-9">
             <div className="text-center">
               <div className="space-x-1 text-3xl text-gray-600">
