@@ -1,7 +1,7 @@
 "use client";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolumeDown, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
 
 export function Bgm() {
@@ -30,7 +30,7 @@ export function Bgm() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false); // 1초 후에 bgm-text 숨기기
-    }, 1000);
+    }, 4000);
 
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 클리어
   }, []);

@@ -5,6 +5,7 @@ import { MainTop } from './maintop';
 import { Comment } from './maincomment';
 import { Bgm } from './bgm';
 import { GetComment } from './getComment';
+import Cover from './cover';
 
 
 export default async function Main() {
@@ -17,6 +18,7 @@ export default async function Main() {
         <div className="flex flex-col items-center min-h-screen bg-neutral-100"> {/* 화면 중앙에 배치 */}
           <div className="relative max-w-96">
             <Bgm></Bgm>
+            <Cover></Cover>
             <MainTop/>
             <MainIntro />
             <MainLocation/>
@@ -25,6 +27,7 @@ export default async function Main() {
           </div>
         </div>
       </div>
+
     </>
   );
 }
