@@ -53,7 +53,7 @@ export default function Calendar() {
                     {week.map((day, j) => (
                       <td 
                         key={j} 
-                        className={`py-2 h-8 w-8 ${day === targetDate ? 'rounded-full bg-red-300 text-white text-bold' : ''} ${j === 0 ? 'text-red-500' : ''}`}
+                        className={`py-2 h-8 w-8 ${day === targetDate ? 'rounded-full bg-red-300 text-white text-bold' : ''} ${j === 0 ? 'text-red-500' : 'text-gray-600'}`}
                       >
                         {day ? day : ""}
                       </td>
