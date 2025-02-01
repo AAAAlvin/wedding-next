@@ -19,7 +19,7 @@ export function MainTop() {
             </div>
 
             <div className="row-02">
-              <FullImage imgPath="/images/pic1.jpg"></FullImage>
+              <FullImage imgPath="/images/pic1.avif"></FullImage>
 
               <div className="row-03 p-6">
                 <div className="text-center text-gray-600 font-gowun">
