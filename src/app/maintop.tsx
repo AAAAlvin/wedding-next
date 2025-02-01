@@ -29,7 +29,7 @@ export function MainTop() {
                   <div className="p-3">
                     2025년 04월 26일 토요일 오후 5시 30분
                     <br />
-                    수원 노보텔 샴페인홀
+                    수원 노보텔 샴페인블룸
                   </div>
                 </div>
               </div>

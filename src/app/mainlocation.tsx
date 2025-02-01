@@ -9,7 +9,7 @@ export function MainLocation() {
             <div className="row-03 p-6">
             <div className="text-center text-gray-600 font-gowun">
                 <div className="space-x-1 text-2xl font-bold">
-                  <span>수원 노보텔, 샴페인홀</span>
+                  <span>수원 노보텔, 샴페인블룸</span>
                 </div>
                 <div className="p-3">
                   경기 수원시 팔달구 덕영대로 902

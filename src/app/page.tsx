@@ -7,6 +7,7 @@ import { Comment } from './maincomment';
 import { GetComment } from './getComment';
 import Cover from './cover';
 import Calendar from './mainCalendar';
+// import Information from './infomation';
 
 export default async function Main() {
   const varComment = await GetComment()
@@ -23,6 +24,7 @@ export default async function Main() {
             <MainIntro />
             <Calendar />
             <MainLocation/>
+            {/* <Information/> */}
             <Comment initialComments ={varComment}/>
             <Account/>
           </div>
