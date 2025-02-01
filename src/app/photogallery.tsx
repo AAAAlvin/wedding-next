@@ -9,14 +9,14 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 
 const images: string[] = [
-  "/images/pic1.jpg",
-  "/images/pic2.jpg",
-  "/images/pic3.jpg",
-  "/images/pic4.jpg",
-  "/images/pic5.jpg",
-  "/images/pic6.jpg",
-  "/images/pic7.jpg",
-  "/images/pic8.jpg",  
+  "/images/pic1.avif",
+  "/images/pic2.avif",
+  "/images/pic3.avif",
+  "/images/pic4.avif",
+  "/images/pic5.avif",
+  "/images/pic6.avif",
+  "/images/pic7.avif",
+  "/images/pic8.avif",  
 ];
 
 export function PhotoGallery(): JSX.Element {

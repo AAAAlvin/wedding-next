@@ -5,16 +5,16 @@ import { useState } from "react";
 import Image from "next/image";
 
 const images = [
-  { id: 1, src: "/images/pic1.jpg", alt: "Image 1" },
-  { id: 2, src: "/images/pic2.jpg", alt: "Image 2" },
-  { id: 3, src: "/images/pic3.jpg", alt: "Image 3" },
-  { id: 4, src: "/images/pic4.jpg", alt: "Image 3" },
-  { id: 5, src: "/images/pic5.jpg", alt: "Image 3" },
-  { id: 6, src: "/images/pic6.jpg", alt: "Image 3" },
-  { id: 7, src: "/images/pic7.jpg", alt: "Image 3" },
-  { id: 8, src: "/images/pic8.jpg", alt: "Image 3" },
-  { id: 9, src: "/images/pic9.jpg", alt: "Image 3" },
-  { id: 10, src: "/images/pic3.jpg", alt: "Image 3" },
+  { id: 1, src: "/images/pic1.avif", alt: "Image 1" },
+  { id: 2, src: "/images/pic2.avif", alt: "Image 2" },
+  { id: 3, src: "/images/pic3.avif", alt: "Image 3" },
+  { id: 4, src: "/images/pic4.avif", alt: "Image 3" },
+  { id: 5, src: "/images/pic5.avif", alt: "Image 3" },
+  { id: 6, src: "/images/pic6.avif", alt: "Image 3" },
+  { id: 7, src: "/images/pic7.avif", alt: "Image 3" },
+  { id: 8, src: "/images/pic8.avif", alt: "Image 3" },
+  { id: 9, src: "/images/pic9.avif", alt: "Image 3" },
+  { id: 10, src: "/images/pic3.avif", alt: "Image 3" },
 ];
 
 export default function Carousel() {
